@@ -86,7 +86,7 @@ const CodePage = () => {
                     </FormControl>
                   </FormItem>
                 )}
-              ></FormField>
+              />
               <Button className='col-span-12 w-full lg:col-span-2' disabled={isLoading}>
                 Generate
               </Button>
