@@ -4,6 +4,7 @@ import { useProModal } from '@/hooks/useProModal';
 import axios from 'axios';
 import { Check, Code, ImageIcon, MessageSquare, Music, VideoIcon, Zap } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 import { cn } from '@/lib/utils';
 
@@ -72,6 +73,7 @@ export const ProModal = (): React.ReactNode => {
       window.location.href = response.data.url;
     } catch (error) {
       console.log(error, 'STRIPE_CLIENT_ERROR');
+      toast.error('Something went wrong.');
     } finally {
       setLoading(false);
     }

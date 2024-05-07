@@ -7,6 +7,7 @@ import { VideoIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import * as z from 'zod';
 
 import { formSchema } from './constants';
@@ -41,6 +42,8 @@ const VideoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error('Something went wrong.');
       }
     } finally {
       router.refresh();
@@ -51,7 +54,7 @@ const VideoPage = () => {
     <div>
       <Heading
         title='Video Generation'
-        description='Turn your prompt into video.'
+        description='Turn your prompt into videos.'
         icon={VideoIcon}
         iconColor='text-orange-700'
         bgColor='bg-orange-700/10'

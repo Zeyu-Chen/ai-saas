@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import * as z from 'zod';
 
 import { amountOptions, formSchema, resolutionOptions } from './constants';
@@ -55,6 +56,8 @@ const ImagePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error('Something went wrong.');
       }
     } finally {
       router.refresh();
@@ -65,7 +68,7 @@ const ImagePage = () => {
     <div>
       <Heading
         title='Image Generation'
-        description='Turn your prompt into an image.'
+        description='Turn your prompt into images.'
         icon={ImageIcon}
         iconColor='text-pink-700'
         bgColor='bg-pink-700/10'

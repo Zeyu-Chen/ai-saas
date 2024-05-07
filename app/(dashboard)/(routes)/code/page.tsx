@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import type { ChatCompletionMessageParam } from 'openai/resources/index.mjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
 import * as z from 'zod';
 
@@ -51,6 +52,8 @@ const CodePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error('Something went wrong.');
       }
     } finally {
       router.refresh();

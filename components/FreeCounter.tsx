@@ -11,9 +11,10 @@ import { Progress } from '@/components/ui/progress';
 
 interface FreeCounterProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
-const FreeCounter: React.FC<FreeCounterProps> = ({ apiLimitCount = 0 }) => {
+const FreeCounter: React.FC<FreeCounterProps> = ({ apiLimitCount = 0, isPro = false }) => {
   const [mounted, setMounted] = useState<boolean>(false);
   const proModal = useProModal();
 
@@ -22,6 +23,10 @@ const FreeCounter: React.FC<FreeCounterProps> = ({ apiLimitCount = 0 }) => {
   }, []);
 
   if (!mounted) {
+    return null;
+  }
+
+  if (isPro) {
     return null;
   }
 

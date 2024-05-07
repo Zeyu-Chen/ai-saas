@@ -17,7 +17,7 @@ export async function GET() {
     }
 
     const userSubscription = await prismadb.userSubscription.findUnique({
-      where: { userId },
+      where: { userId: userId },
     });
 
     if (userSubscription && userSubscription.stripeCustomerId) {
@@ -39,7 +39,7 @@ export async function GET() {
       line_items: [
         {
           price_data: {
-            currency: 'USD',
+            currency: 'AUD',
             product_data: {
               name: 'Genius Pro',
               description: 'Unlimited AI Generations',
