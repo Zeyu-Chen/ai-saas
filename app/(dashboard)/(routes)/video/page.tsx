@@ -1,5 +1,6 @@
 'use client';
 
+import { useProModal } from '@/hooks/useProModal';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { VideoIcon } from 'lucide-react';
@@ -19,6 +20,7 @@ import { Input } from '@/components/ui/input';
 
 const VideoPage = () => {
   const router = useRouter();
+  const proModal = useProModal();
   const [video, setVideo] = useState<string | undefined>();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -37,8 +39,9 @@ const VideoPage = () => {
       setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
-      //To do : open pro modal
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

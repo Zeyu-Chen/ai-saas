@@ -1,5 +1,6 @@
 'use client';
 
+import { useProModal } from '@/hooks/useProModal';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { MessageSquare } from 'lucide-react';
@@ -24,6 +25,7 @@ import UserAvatar from '@/components/UserAvatar';
 
 const ConversationPage = () => {
   const router = useRouter();
+  const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,8 +48,9 @@ const ConversationPage = () => {
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
     } catch (error: any) {
-      // todo: open pro modal
-      console.error(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
