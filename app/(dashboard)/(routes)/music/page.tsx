@@ -96,7 +96,9 @@ const MusicPage = () => {
               <Loader />
             </div>
           )}
-          {!music && !isLoading && <Empty label='No music generated.' />}
+          {!music && !isLoading && (
+            <Empty label='Due to the timeout limit (10s) of the free version of Vercel, this tool cannot be used online now. Generating music typically takes more than 10 seconds.' />
+          )}
           {music && (
             <audio controls className='w-full mt-8'>
               <source src={music} />

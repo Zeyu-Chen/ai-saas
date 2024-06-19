@@ -95,7 +95,9 @@ const VideoPage = () => {
               <Loader />
             </div>
           )}
-          {!video && !isLoading && <Empty label='No video generated.' />}
+          {!video && !isLoading && (
+            <Empty label='Due to the timeout limit (10s) of the free version of Vercel, this tool cannot be used online now. Generating video typically takes more than 40 seconds.' />
+          )}
           {video && (
             <video controls className='w-full aspect-video mt-8 rounded-lg border bg-black'>
               <source src={video} />
