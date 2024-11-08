@@ -1,5 +1,15 @@
 # AI SaaS Platform
 
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-5-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-4-412991?logo=openai&logoColor=white)](https://openai.com/)
+[![Clerk](https://img.shields.io/badge/Clerk-5-6C47FF?logo=clerk&logoColor=white)](https://clerk.dev/)
+[![Stripe](https://img.shields.io/badge/Stripe-15-008CDD?logo=stripe&logoColor=white)](https://stripe.com/)
+
 A modern AI SaaS platform built with Next.js that provides multiple AI capabilities including conversation, image generation, music generation, video generation and code generation with premium subscription features.
 
 ## Features
